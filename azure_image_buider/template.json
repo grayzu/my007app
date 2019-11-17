@@ -61,7 +61,7 @@
                     "location": "<region>",
                     "runOutputName": "<runOutputName>",
                     "artifactTags": {
-                        "source": "azVmImageBuilder",
+                        "source": "azVM4My007App",
                         "baseosimg": "ubuntu1804"
                     }
                 }
