@@ -21,32 +21,35 @@
         "customize": [
             {
                 "type": "Shell",
-                "name": "RunScripts01",
-                "scriptUri": "https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/customizeScript.sh"
+                "name": "Install Git & Unzip",
+                "inline": [
+                    "sudo apt install git-all",
+                    "sudo apt install unzip"
+                ]
             },
-        
+            
+            {
+                "type": "Shell",
+                "name": "Install Node JS 10 LTS",
+                "inline": [
+                    "curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -",
+                    "sudo apt install nodejs"
+                ]
+            },
             
             {
                 "type": "File",
                 "name": "downloadBuildArtifacts",
-                "sourceUri": "https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/exampleArtifacts/buildArtifacts/index.html",
-                "destination":"/tmp/index.html"
+                "sourceUri": "https://github.com/grayzu/my007app/archive/master.zip",
+                "destination":"/tmp/my007app-master.zip"
             },
-
+            
             {
                 "type": "Shell",
-                "name": "setupBuildPath",
+                "name": "Unzip Source and copy to destination",
                 "inline": [
-                    "sudo mkdir /buildArtifacts",
-                    "sudo cp /tmp/index.html /buildArtifacts/index.html"
-                ]
-            },
-
-            {
-                "type": "Shell",
-                "name": "InstallUpgrades",
-                "inline": [
-                    "sudo apt install unattended-upgrades"
+                    "cd /tmp",
+                    "unzip my007app-master.zip"
                 ]
             }
 
